@@ -1,0 +1,554 @@
+/* ----------------------------------------------------------------Main---------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#start-img {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#body2 {
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100vw;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ----------------------------------------------------------------Navigation bar---------------------------------------------------------------- */
+
+nav {
+    display: flex;
+    width: 100%;
+    height: 3.6%;
+    background-color: rgba(44, 44, 44, 0.911);
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    z-index: 100;
+}
+
+nav ul {
+    width: 50%;
+    display: flex;
+    height: 100%;
+}
+
+nav ul li {
+    height: 100%;
+    width: 4.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+nav ul li:active {
+    background-color: rgba(180, 180, 180, 0.2);
+}
+
+nav ul li img {
+    width: 35%;
+    height: 40%;
+}
+
+#file-explorer-img {
+    width: 40%;
+    height: 50%;
+}
+
+/* --------------------------------Search-------------------------------- */
+
+#search {
+    width: 36%;
+    height: 100%;
+}
+
+#search input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 0.8vw;
+    background-image: url("search.png");
+    background-size: 11%;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px  solid white;
+}
+
+#search input:focus {
+    outline: none;
+    border: 2px solid rgb(67, 104, 185);
+}
+
+#search input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+/* --------------------------------Start-------------------------------- */
+
+#start:active {
+    background-color: rgba(36, 36, 36, 0.3);
+}
+
+#start:hover > #start-img {
+    content: url("windowslogoblue.png");
+    -webkit-filter: invert(0);
+    filter: invert(0);
+}
+
+#start:hover ~ #start-hover {
+    opacity: 1;
+}
+
+#start-hover {
+    background-color: white;
+    position: absolute;
+    opacity: 0;
+    bottom: 100%;
+    left: 0.28%;
+    font-size: 0.7vw;
+    width: 1.5%;
+    text-align: center;
+    padding: 0.1%;
+    transition: all ease-in-out 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-hover:hover {
+    cursor: default;
+}
+
+/* ----------------------------------------------------------------Start Menu---------------------------------------------------------------- */
+
+#start-menu {
+    position: absolute;
+    width: 31.7%;
+    height: 50%;
+    background-color: rgba(36, 36, 36, 0.911);
+    bottom: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#start-menu.visible {
+    opacity: 1;
+    width: 31.7%;
+    height: 1540%;
+    pointer-events: all;
+}
+
+#start-menu-menu {
+    height: 100%;
+    width: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    z-index: 5;
+}
+
+#start-menu-menu img {
+    padding: 54%;
+    padding-top: 60%;
+    height: 3%;
+    width: 100%;
+}
+
+#start-menu-menu img:hover {
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#apps {
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: red;
+    scrollbar-width: thin;
+}
+
+#apps p {
+    color: rgb(224, 224, 224);
+    width: 230px;
+    padding: 10px 15px;
+    font-size: 11px;
+}
+
+#apps p:hover {
+    cursor: default;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#apps p:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#apps div img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+#apps div {
+    width: 250px;
+    padding: 7.5px 0px 7.5px 8px;
+    color: rgb(224, 224, 224);
+    display: flex;
+}
+
+#apps div:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: default;
+}
+
+#apps div:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#big-start-buttons {
+    margin-top: 20px;
+    width: 325px;
+    height: 530px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    align-content: start;
+}
+
+#big-start-buttons p {
+    width: 100%;
+    color: rgb(224, 224, 224);
+    font-size: 11px;
+    margin-bottom: 8px;
+}
+
+#big-start-buttons div img {
+    width: 35px;
+    margin-top: 25px;
+    margin-bottom: 13px;
+}
+
+#big-start-buttons div {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 4px 2px 0px;
+    background-color: rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+}
+
+#big-start-buttons div:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#big-start-buttons div:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#big-start-buttons div p {
+    margin-left: 5px;
+}
+
+/* ----------------------------------------------------------------File Explorer---------------------------------------------------------------- */
+
+#file-explorer-menu {
+    background-color: white;
+    position: absolute;
+    top: 15%;
+    left: 23%;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all ease-in-out 0.2s;
+}
+
+#file-explorer-menu.visible {
+    width: 1000px;
+    height: 600px;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#file-explorer-menu header {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#left-file-explorer-nav {
+    display: flex;
+    height: 30px;
+    width: 130px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#left-file-explorer-nav p {
+    color: gray;
+}
+
+#left-file-explorer-nav p:hover {
+    cursor: default;
+}
+
+#right-file-explorer-nav {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#right-file-explorer-nav div {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#file-explorer-menu-minimize:hover, #file-explorer-menu-fullscreen:hover {
+    background-color: rgba(36, 36, 36, 0.2);
+}
+
+#file-explorer-menu-close:hover {
+    background-color: rgb(187, 38, 38);
+}
+
+#right-file-explorer-nav div img {
+    height: 14px;
+}
+
+
+/* -----------------------------------------------------------------Calculator----------------------------------------------------------------- */
+
+#calculator {
+    background-color: white;
+    position: absolute;
+    top: 15%;
+    left: 23%;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    pointer-events: none;
+    transition: all ease-in-out 0.2s;
+}
+
+                              /* --------------------------------Calculator Navbar-------------------------------- */
+
+#calculator header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+}
+
+#right-calculator-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#right-calculator-nav div {
+    width: 50px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator-minimize:hover, #calculator-fullscreen:hover {
+    background-color: rgba(36, 36, 36, 0.2);
+}
+
+#calculator-close:hover {
+    background-color: rgb(187, 38, 38);
+}
+
+#calculator-close:hover + #calculator-close img {
+    filter: invert(1);
+    -webkit-filter: invert(1);
+}
+
+#right-calculator-nav div img {
+    width: 14px;
+    height: 14px;
+}
+
+#left-calculator-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#left-calculator-nav p {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#left-calculator-nav p:hover {
+    cursor: default;
+}
+
+#header2 {
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#header2 img {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+#header2 p {
+    font-size: 28px;
+    margin-left: 30px;
+}
+
+#header2 p:hover {
+    cursor: default;
+}
+
+#calculator-output {
+    height: 100px;
+    width: 96%;
+    text-align: right;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+#calculator-output:hover {
+    cursor: default;
+}
+
+#calculator.visible {
+    width: 375px;
+    height: 600px;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#header3 {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+#header3 p {
+    width: 20%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#header3 #black:hover {
+    background-color: rgb(221, 221, 221);
+    cursor: default;
+}
+
+#header3 p:hover {
+    cursor: default;
+}
+
+#header3 #gray {
+    color: rgb(185, 185, 185);
+}
+
+#calculate {
+    width: 100%;
+    height: 379px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#calculate div {
+    width: 93.75px;
+    height: 60px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#calculator.visible #calculate div {
+    display: flex;
+}
+
+#calculate div p {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#calculate div img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#calculate div:hover {
+    background-color: rgb(221, 221, 221);
+    cursor: default;
+}
+
+#calculate div:active {
+    background-color: rgb(204, 204, 204);
+}
+
+/* --------------------------------Right taskbar--------------------------------*/
+
+#open-desktop {
+    border-left: rgba(255, 255, 255, 0.329) solid 1px;
+    width: 4px;
+}
+
+#open-desktop:hover {
+    background-color: rgba(155, 155, 155, 0.2);
+}
+
+#right-taskbar {
+    justify-content: right;
+}
