@@ -163,7 +163,7 @@ nav ul li img {
 
 #start-menu-menu {
     height: 100%;
-    width: 5%;
+    width: 4.1%;
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
@@ -173,7 +173,7 @@ nav ul li img {
 #start-menu-menu img {
     padding: 54%;
     padding-top: 60%;
-    height: 3%;
+    height: 2.7%;
     width: 100%;
 }
 
@@ -186,9 +186,9 @@ nav ul li img {
 }
 
 #apps {
-    width: 300px;
-    margin-left: 20px;
-    margin-top: 10px;
+    width: 42%;
+    margin-left: 3.4%;
+    margin-top: 1.5%;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-color: red;
@@ -197,9 +197,12 @@ nav ul li img {
 
 #apps p {
     color: rgb(224, 224, 224);
-    width: 230px;
-    padding: 10px 15px;
-    font-size: 11px;
+    width: 85%;
+    height: 5.3%;
+    padding-left: 3.5%;
+    font-size: 0.6vw;
+    display: flex;
+    align-items: center;
 }
 
 #apps p:hover {
@@ -212,15 +215,19 @@ nav ul li img {
 }
 
 #apps div img {
-    width: 20px;
-    margin-right: 5px;
+    aspect-ratio: 0.9;
+    height: 70%;
+    margin-right: 3%;
 }
 
 #apps div {
-    width: 250px;
-    padding: 7.5px 0px 7.5px 8px;
+    width: 85%;
+    height: 5.3%;
+    padding-left: 3.5%;
     color: rgb(224, 224, 224);
     display: flex;
+    align-items: center;
+    font-size: 0.6vw;
 }
 
 #apps div:hover {
@@ -233,9 +240,9 @@ nav ul li img {
 }
 
 #big-start-buttons {
-    margin-top: 20px;
-    width: 325px;
-    height: 530px;
+    margin-top: 3%;
+    width: 50%;
+    height: 97%;
     display: flex;
     flex-wrap: wrap;
     align-items: start;
@@ -245,25 +252,29 @@ nav ul li img {
 #big-start-buttons p {
     width: 100%;
     color: rgb(224, 224, 224);
-    font-size: 11px;
-    margin-bottom: 8px;
+    font-size: 0.6vw;
+    margin-bottom: 4%;
 }
 
 #big-start-buttons div img {
-    width: 35px;
-    margin-top: 25px;
-    margin-bottom: 13px;
+    width: 35%;
+    margin-top: 25%;
+    margin-bottom: 13%;
 }
 
 #big-start-buttons div {
-    width: 90px;
-    height: 90px;
+    width: 31%;
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2px 4px 2px 0px;
+    margin: 0.7%;
     background-color: rgba(255, 255, 255, 0.1);
     flex-wrap: wrap;
+}
+
+#big-start-buttons div img {
+    width: 40%;
 }
 
 #big-start-buttons div:hover {
@@ -275,7 +286,7 @@ nav ul li img {
 }
 
 #big-start-buttons div p {
-    margin-left: 5px;
+    margin-left: 5%;
 }
 
 /* ----------------------------------------------------------------File Explorer---------------------------------------------------------------- */
@@ -292,15 +303,8 @@ nav ul li img {
     transition: all ease-in-out 0.2s;
 }
 
-#file-explorer-menu.visible {
-    width: 1000px;
-    height: 600px;
-    opacity: 1;
-    pointer-events: all;
-}
-
 #file-explorer-menu header {
-    height: 30px;
+    height: 5%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -309,13 +313,18 @@ nav ul li img {
 
 #left-file-explorer-nav {
     display: flex;
-    height: 30px;
-    width: 130px;
+    height: 100%;
+    width: 12%;
     align-items: center;
     justify-content: space-around;
 }
 
+#left-file-explorer-nav img {
+    width: 15%;
+}
+
 #left-file-explorer-nav p {
+    font-size: 0.8vw;
     color: gray;
 }
 
@@ -324,13 +333,14 @@ nav ul li img {
 }
 
 #right-file-explorer-nav {
-    height: 30px;
+    height: 100%;
+    width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: right;
 }
 
 #right-file-explorer-nav div {
-    width: 50px;
+    width: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -345,7 +355,14 @@ nav ul li img {
 }
 
 #right-file-explorer-nav div img {
-    height: 14px;
+    height: 50%;
+}
+
+#file-explorer-menu.visible {
+    width: 52%;
+    height: 55%;
+    opacity: 1;
+    pointer-events: all;
 }
 
 
@@ -369,7 +386,7 @@ nav ul li img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 30px;
+    height: 5%;
     width: 100%;
 }
 
@@ -377,11 +394,13 @@ nav ul li img {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50%;
+    height: 100%;
 }
 
 #right-calculator-nav div {
-    width: 50px;
-    height: 30px;
+    width: 35%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -401,19 +420,18 @@ nav ul li img {
 }
 
 #right-calculator-nav div img {
-    width: 14px;
-    height: 14px;
+    width: 20%;
 }
 
 #left-calculator-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 2%;
 }
 
 #left-calculator-nav p {
-    font-size: 15px;
+    font-size: 0.8vw;
     font-weight: 500;
 }
 
@@ -423,21 +441,20 @@ nav ul li img {
 
 #header2 {
     width: 100%;
-    height: 50px;
-    margin-top: 5px;
+    height: 8%;
+    margin-top: 1%;
     display: flex;
     align-items: center;
 }
 
 #header2 img {
-    width: 25px;
-    height: 25px;
-    margin-left: 10px;
+    width: 7%;
+    margin-left: 4%;
 }
 
 #header2 p {
-    font-size: 28px;
-    margin-left: 30px;
+    font-size: 1.3vw;
+    margin-left: 1vw;
 }
 
 #header2 p:hover {
@@ -445,10 +462,10 @@ nav ul li img {
 }
 
 #calculator-output {
-    height: 100px;
+    height: 16.5%;
     width: 96%;
     text-align: right;
-    font-size: 50px;
+    font-size: 2.6vw;
     font-weight: 500;
 }
 
@@ -457,26 +474,27 @@ nav ul li img {
 }
 
 #calculator.visible {
-    width: 375px;
-    height: 600px;
+    width: 19.55%;
+    height: 55.5%;
     opacity: 1;
     pointer-events: all;
 }
 
 #header3 {
     width: 100%;
-    height: 35px;
+    height: 6%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid rgb(221, 221, 221);
+    border-bottom: 0.1vh solid rgb(221, 221, 221);
 }
 
 #header3 p {
     width: 20%;
-    height: 35px;
-    line-height: 35px;
+    height: 100%;
+    line-height: 100%;
     text-align: center;
+    font-size: 0.9vw;
     font-weight: 600;
 }
 
@@ -495,14 +513,14 @@ nav ul li img {
 
 #calculate {
     width: 100%;
-    height: 379px;
+    height: 64.3%;
     display: flex;
     flex-wrap: wrap;
 }
 
 #calculate div {
-    width: 93.75px;
-    height: 60px;
+    width: 25%;
+    height: 15.6%;
     display: none;
     align-items: center;
     justify-content: center;
@@ -514,7 +532,7 @@ nav ul li img {
 
 #calculate div p {
     text-align: center;
-    font-size: 22px;
+    font-size: 1.2vw;
     font-weight: 600;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -527,6 +545,14 @@ nav ul li img {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#calculator-backspace {
+    width: 25%;
+}
+
+#calculator-divide { 
+    width: 20%;
 }
 
 #calculate div:hover {

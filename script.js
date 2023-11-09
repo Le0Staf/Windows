@@ -74,6 +74,12 @@ function MaximizeFileExplorer() {
         document.getElementById("file-explorer-menu").style.left = "0";
         document.getElementById("file-explorer-menu").style.width = "100%";
         document.getElementById("file-explorer-menu").style.height = "100%";
+        document.getElementById("file-explorer-menu-header").style.height = "2.8%";
+        document.getElementById("file-explorer-menu-minimize").style.width = "5%";
+        document.getElementById("file-explorer-menu-fullscreen").style.width = "5%";
+        document.getElementById("file-explorer-menu-close").style.width = "5%";
+        document.getElementById("left-file-explorer-nav").style.width = "6%";
+
         fileExplorerIsMaximized = 1;
     }
     else if (fileExplorerIsMaximized == 1) {
@@ -82,6 +88,12 @@ function MaximizeFileExplorer() {
         document.getElementById("file-explorer-menu").style.left = "23%";
         document.getElementById("file-explorer-menu").style.width = "1000px";
         document.getElementById("file-explorer-menu").style.height = "600px";
+        document.getElementById("file-explorer-menu-header").style.height = "5%";
+        document.getElementById("file-explorer-menu-minimize").style.width = "10%";
+        document.getElementById("file-explorer-menu-fullscreen").style.width = "10%";
+        document.getElementById("file-explorer-menu-close").style.width = "10%";
+        document.getElementById("left-file-explorer-nav").style.width = "12%";
+
         fileExplorerIsMaximized = 0;
     }
 
