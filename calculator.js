@@ -68,6 +68,9 @@ let calculatorDivision = false;
 let calculatorMultiplication = false;
 
 let calculatorChangeToDecimal = false;
+let calculatorDecimalDivideBy = 10;
+
+let calculatorHasBeenEqual = false;
 
 function UpdateCalculator() {
     if (calculatorIsValue == 1) {
@@ -79,28 +82,51 @@ function UpdateCalculator() {
 }
 
 function CalculatorChangeToDecimal() {
-    calculatorChangeToDecimal = true;
+    if (calculatorHasBeenEqual == false) {
+        calculatorChangeToDecimal = true;
+    }
+    else if (calculatorHasBeenEqual == true) {
+        CalculatorReset();
+        calculatorChangeToDecimal = true;
+        calculatorHasBeenEqual = false;
+    }
+
 }
 
 function CalculatorNumber(number) {
     if (calculatorChangeToDecimal == true) {
         if (calculatorIsValue == 1) {
-            
+            calculatorValue = calculatorValue + (number / calculatorDecimalDivideBy);
+            calculatorDecimalDivideBy = calculatorDecimalDivideBy * 10;
             UpdateCalculator();
         }
         else if (calculatorIsValue == 2) {
-            secondCalculatorValue = secondCalculatorValue / 10;
-            secondCalculatorValue = secondCalculatorValue + (number / 10);
+            secondCalculatorValue = secondCalculatorValue + (number / calculatorDecimalDivideBy);
+            calculatorDecimalDivideBy = calculatorDecimalDivideBy * 10;
             UpdateCalculator();
         }
     }
     else if (calculatorChangeToDecimal == false) {
-        if (calculatorIsValue == 1) {
+        if (calculatorIsValue == 1 && calculatorHasBeenEqual == false) {
             calculatorValue = calculatorValue * 10;
             calculatorValue = calculatorValue + number;
             UpdateCalculator();
         }
-        else if (calculatorIsValue == 2) {
+        else if (calculatorIsValue == 2 && calculatorHasBeenEqual == false) {
+            secondCalculatorValue = secondCalculatorValue * 10;
+            secondCalculatorValue = secondCalculatorValue + number;
+            UpdateCalculator();
+        }
+        else if (calculatorIsValue == 1 && calculatorHasBeenEqual == true) {
+            CalculatorReset();
+            calculatorHasBeenEqual = false;
+            calculatorValue = calculatorValue * 10;
+            calculatorValue = calculatorValue + number;
+            UpdateCalculator();
+        }
+        else if (calculatorIsValue == 2 && calculatorHasBeenEqual == true) {
+            CalculatorReset();
+            calculatorHasBeenEqual = false;
             secondCalculatorValue = secondCalculatorValue * 10;
             secondCalculatorValue = secondCalculatorValue + number;
             UpdateCalculator();
@@ -109,12 +135,15 @@ function CalculatorNumber(number) {
 }
 
 function CalculatorAddition() {
+    calculatorHasBeenEqual = false;
     if (calculatorSubtraction == true) {
         calculatorValue = calculatorValue - secondCalculatorValue; 
         secondCalculatorValue = 0;
         calculatorIsValue = 2;
         calculatorSubtraction = false;
         calculatorAddition = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorDivision == true) {
@@ -123,6 +152,8 @@ function CalculatorAddition() {
         calculatorIsValue = 2;
         calculatorDivision = false;
         calculatorAddition = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorMultiplication == true) {
@@ -131,12 +162,16 @@ function CalculatorAddition() {
         calculatorIsValue = 2;
         calculatorMultiplication = false;
         calculatorAddition = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorAddition == true && secondCalculatorValue > 0) {
         calculatorValue = calculatorValue + secondCalculatorValue; 
         secondCalculatorValue = 0;
         calculatorIsValue = 2;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorIsValue == 1) {
@@ -145,17 +180,22 @@ function CalculatorAddition() {
             calculatorAddition = true;
             calculatorSubtraction = false;
             calculatorDivision = false;
+            calculatorDecimalDivideBy = 10;
+            calculatorChangeToDecimal = false;
         }
     }
 }
 
 function CalculatorSubtraction() {
+    calculatorHasBeenEqual = false;
     if (calculatorAddition == true) {
         calculatorValue = calculatorValue + secondCalculatorValue; 
         secondCalculatorValue = 0;
         calculatorIsValue = 2;
         calculatorAddition = false;
         calculatorSubtraction = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorDivision == true) {
@@ -164,6 +204,8 @@ function CalculatorSubtraction() {
         calculatorIsValue = 2;
         calculatorDivision = false;
         calculatorSubtraction = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorMultiplication == true) {
@@ -172,12 +214,16 @@ function CalculatorSubtraction() {
         calculatorIsValue = 2;
         calculatorMultiplication = false;
         calculatorSubtraction = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorSubtraction == true && secondCalculatorValue > 0) {
         calculatorValue = calculatorValue - secondCalculatorValue; 
         secondCalculatorValue = 0;
         calculatorIsValue = 2;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorIsValue == 1) {
@@ -185,16 +231,21 @@ function CalculatorSubtraction() {
         calculatorSubtraction = true;
         calculatorAddition = false;
         calculatorDivision = false;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
     }
 }
 
 function CalculatorMultiplication() {
+    calculatorHasBeenEqual = false;
     if (calculatorAddition == true) {
         calculatorValue = calculatorValue + secondCalculatorValue; 
         secondCalculatorValue = 0;
         calculatorIsValue = 2;
         calculatorAddition = false;
         calculatorMultiplication = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorSubtraction == true) {
@@ -203,6 +254,8 @@ function CalculatorMultiplication() {
         calculatorIsValue = 2;
         calculatorSubtraction = false;
         calculatorMultiplication = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorDivision == true) {
@@ -211,12 +264,16 @@ function CalculatorMultiplication() {
         calculatorIsValue = 2;
         calculatorDivision = false;
         calculatorMultiplication = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorMultiplication == true && secondCalculatorValue > 0) {
         calculatorValue = calculatorValue * secondCalculatorValue; 
         secondCalculatorValue = 0;
         calculatorIsValue = 2;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorIsValue == 1 && calculatorValue > 0) {
@@ -225,16 +282,21 @@ function CalculatorMultiplication() {
         calculatorSubtraction = false;
         calculatorAddition = false;
         calculatorMultiplication = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
     }
 }
 
 function CalculatorDivision() {
+    calculatorHasBeenEqual = false;
     if (calculatorAddition == true) {
         calculatorValue = calculatorValue + secondCalculatorValue; 
         secondCalculatorValue = 0;
         calculatorIsValue = 2;
         calculatorAddition = false;
         calculatorDivision = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorSubtraction == true) {
@@ -243,12 +305,16 @@ function CalculatorDivision() {
         calculatorIsValue = 2;
         calculatorSubtraction = false;
         calculatorDivision = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorDivision == true && secondCalculatorValue > 0) {
         calculatorValue = calculatorValue / secondCalculatorValue; 
         secondCalculatorValue = 0;
         calculatorIsValue = 2;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorMultiplication == true) {
@@ -257,6 +323,8 @@ function CalculatorDivision() {
         calculatorIsValue = 2;
         calculatorMultiplication = false;
         calculatorDivision = true;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
         document.getElementById("calculator-output").innerHTML = calculatorValue;
     }
     else if (calculatorIsValue == 1 && calculatorValue > 0) {
@@ -264,16 +332,22 @@ function CalculatorDivision() {
         calculatorDivision = true;
         calculatorSubtraction = false;
         calculatorAddition = false;
+        calculatorDecimalDivideBy = 10;
+        calculatorChangeToDecimal = false;
     }
 }
 
 function CalculatorEquals() {
+    calculatorHasBeenEqual = true;
     if (calculatorIsValue == 2 && secondCalculatorValue > 0) {
         if (calculatorAddition == true) {
             calculatorValue = calculatorValue + secondCalculatorValue; 
             secondCalculatorValue = 0;
             calculatorIsValue = 1;
             calculatorAddition = false;
+            calculatorDecimalDivideBy = 10;
+            calculatorChangeToDecimal = false;
+            calculatorHasBeenEqual = true;
             UpdateCalculator();
         }
         else if (calculatorSubtraction == true) {
@@ -281,6 +355,9 @@ function CalculatorEquals() {
             secondCalculatorValue = 0;
             calculatorIsValue = 1;
             calculatorSubtraction = false;
+            calculatorDecimalDivideBy = 10;
+            calculatorChangeToDecimal = false;
+            calculatorHasBeenEqual = true;
             UpdateCalculator();
         }
         else if (calculatorDivision == true ) {
@@ -288,6 +365,9 @@ function CalculatorEquals() {
             secondCalculatorValue = 0;
             calculatorIsValue = 1;
             calculatorDivision = false;
+            calculatorDecimalDivideBy = 10;
+            calculatorChangeToDecimal = false;
+            calculatorHasBeenEqual = true;
             UpdateCalculator();
         }
         else if (calculatorMultiplication == true ) {
@@ -295,6 +375,9 @@ function CalculatorEquals() {
             secondCalculatorValue = 0;
             calculatorIsValue = 1;
             calculatorMultiplication = false;
+            calculatorDecimalDivideBy = 10;
+            calculatorChangeToDecimal = false;
+            calculatorHasBeenEqual = true;
             UpdateCalculator();
         }
     }
@@ -315,6 +398,11 @@ function CalculatorReset() {
     secondCalculatorValue = 0;
 
     calculatorIsValue = 1;
+
+    calculatorDecimalDivideBy = 10;
+    calculatorChangeToDecimal = false;
+
+    
 
     UpdateCalculator();
 }
